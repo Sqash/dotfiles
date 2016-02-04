@@ -131,6 +131,9 @@ noremap n nzz
 "Always gj and gk (see help for difference)
 nnoremap j gj
 nnoremap k gk
+nnoremap J 5j
+nnoremap K 5k
+nnoremap gJ J
 
 "Easier line beginning and end
 noremap H 0
