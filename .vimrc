@@ -128,6 +128,10 @@ noremap n nzz
 
 "{{{ Movement
 
+"Always gj and gk (see help for difference)
+nnoremap j gj
+nnoremap k gk
+
 "Easier line beginning and end
 noremap H 0
 noremap L $
