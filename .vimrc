@@ -253,6 +253,7 @@ augroup Lang_utilities
   autocmd Filetype python nnoremap <buffer> <localleader>c I#<esc>
   autocmd Filetype html nnoremap <buffer> <localleader>c I<!-- <esc>A --><esc>0
   autocmd Filetype vim nnoremap <buffer> <localleader>c I"<esc>
+  autocmd Filetype tex nnoremap <buffer> <localleader>c I%<esc>
 augroup END
 "}}}
 
