@@ -108,7 +108,7 @@ vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 "{{{ Tabs & Windows
 
 "create tabs easily
-nnoremap <c-t> :tabnew<cr>
+nnoremap <c-t> :Texplore<cr>
 "switch tabs easy
 nnoremap <c-h> :tabprevious<cr>
 nnoremap <c-l> :tabnext<cr>
