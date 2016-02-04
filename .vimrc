@@ -259,3 +259,8 @@ augroup END
 "}}}
 
 
+"{{{ Macros and Registers
+
+let @t = ":!pdflatex --output-directory tex-out/ %\r"
+
+"}}}
