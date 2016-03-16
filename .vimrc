@@ -66,16 +66,23 @@ set statusline=%.F%m%r\ b%n\ (%{&ff})%=%y[%3.16l,%3.4v][%3p%%]
 "Prettifying stuff
 set colorcolumn=80
 set t_Co=256
-colorscheme torte
+"colorscheme torte
+colorscheme monokai
 set showcmd
 " Bracket matching colours
-highlight MatchParen ctermbg=10
+highlight MatchParen ctermbg=4
 
 "Use unix grep with -nH as default :grep
 set grepprg=grep\ -nH\ $*
 
 "Use auto-indenting!
 set autoindent
+set smartindent
+
+"Format options
+set formatoptions+=r "Adds new comment on enter when in insert
+set formatoptions+=n "Smart list indenting (hopefully)
+set formatoptions+=j "Make line joining delete comment leader if relevant
 
 "Wildmenu allows for nicer autocomplete of commands
 set wildmenu
@@ -103,6 +110,9 @@ nnoremap <leader>rn :set relativenumber!<cr>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
+"open last buffer in a pane after this
+nnoremap <leader>el :execute "rightbelow split" bufname("#")<cr>
+
 "}}}
 
 "{{{ Tabs & Windows
@@ -123,6 +133,11 @@ nnoremap <leader>w <c-w>
 "Center search results vertically in window
 noremap N Nzz
 noremap n nzz
+
+"Clear search highlighting
+nnoremap <silent> <leader>/ :nohlsearch<cr>
+"Clear search register
+nnoremap <silent> <leader>d/ :let @/=""<cr>
 
 "}}}
 
@@ -240,12 +255,24 @@ augroup END
 augroup Tex_files
   autocmd Filetype tex setlocal formatoptions+=t
   autocmd Filetype tex setlocal tw=79
+  autocmd Filetype tex nnoremap <localleader>sp :set spell!<cr>
+" Set highlighting for misspelled words
+  autocmd Filetype tex highlight clear SpellBad
+  autocmd Filetype tex highlight SpellBad cterm=underline
 augroup END
 "}}}
 
 "{{{ Make_files
 augroup Make_files
   autocmd Filetype make setlocal noexpandtab
+augroup END
+"}}}
+
+"{{{ Processing_files
+augroup Processing_files
+  autocmd BufRead,BufNewFile  *.pde set filetype=processing
+  autocmd FileType processing :set syntax=java
+  autocmd FileType processing nnoremap <localleader>mr :!processing-java --sketch=%:p:h --run<cr>
 augroup END
 "}}}
 
