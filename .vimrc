@@ -219,9 +219,9 @@ augroup END
 
 "{{{ HTML_files
 augroup HTML_files
-  "retab HTML files on write
-  autocmd BufWritePre,BufRead *.html :normal gg=G
-  autocmd BufNewFile,BufRead *.html setlocal nowrap
+  "THIS LOOKS REALLY BAD MOST OF THE TIME - retab HTML files on write
+  "autocmd BufWritePre,BufRead *.html :normal gg=G
+  "autocmd BufNewFile,BufRead *.html setlocal nowrap
 augroup END
 "}}}
 
