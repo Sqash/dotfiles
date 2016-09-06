@@ -113,6 +113,9 @@ vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 "open last buffer in a pane after this
 nnoremap <leader>el :execute "rightbelow split" bufname("#")<cr>
 
+"grep for word under cursor
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+
 "}}}
 
 "{{{ Tabs & Windows
